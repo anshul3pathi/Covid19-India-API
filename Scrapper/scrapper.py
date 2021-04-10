@@ -21,7 +21,7 @@ class CovidScrapper:
 	:public methods - get_covid_data
 	"""
 
-	PATH = "./chromedriver.exe"  # path to chrome driver
+	PATH = "C:\\Users\\anshu\\Dropbox\\Covid19_Project\\Scrapper\\chromedriver.exe"  # path to chrome driver
 	URL = "https://www.covid19india.org/"  # website url
 
 	def __init__(self):
