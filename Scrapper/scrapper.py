@@ -6,6 +6,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
 
+"""
+This module contains the CovidScrapper class that contains all the logic
+for scraping the data from covid19.org and converting all that data into
+json-dictionary format.
+"""
+
 
 class CovidScrapper:
 	"""
@@ -15,7 +21,7 @@ class CovidScrapper:
 	:public methods - get_covid_data
 	"""
 
-	PATH = "C:\\Program Files (x86)\\chromedriver.exe"  # path to chrome driver
+	PATH = "./chromedriver.exe"  # path to chrome driver
 	URL = "https://www.covid19india.org/"  # website url
 
 	def __init__(self):
