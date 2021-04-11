@@ -1,10 +1,10 @@
 import selenium
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+# from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-import time
+import os
 
 """
 This module contains the CovidScrapper class that contains all the logic
@@ -21,7 +21,7 @@ class CovidScrapper:
 	:public methods - get_covid_data
 	"""
 
-	PATH = "C:\\Users\\anshu\\Dropbox\\Covid19_Project\\Scrapper\\chromedriver.exe"  # path to chrome driver
+	PATH = os.environ.get("CHROME_DRIVER_PATH")  # path to chrome driver
 	URL = "https://www.covid19india.org/"  # website url
 
 	def __init__(self):
@@ -35,10 +35,13 @@ class CovidScrapper:
 		creates the selenium webdriver with arguments
 		:return: driver = selenium chrome webdriver
 		"""
-		options = Options()
-		options.add_argument("--headless")
-		options.add_argument("--window-size=1920x1080")
-		driver = webdriver.Chrome(options=options, executable_path=CovidScrapper.PATH)
+		chrome_options = webdriver.ChromeOptions()
+		chrome_options.add_argument("--headless")
+		chrome_options.add_argument("--disable-gpu")
+		chrome_options.add_argument("--no-sandbox")
+
+		chrome_options.binary_location = os.environ.get("GOOLE_CHROME_PATH")
+		driver = webdriver.Chrome(options=chrome_options, executable_path=CovidScrapper.PATH)
 		return driver
 
 	def __clean_data(self, data):
