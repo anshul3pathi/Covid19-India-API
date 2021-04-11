@@ -7,9 +7,9 @@ api = Api(app)
 
 api.add_resource(CovidResource, "/statecoviddata")
 
-
 scrapper = CovidScrapper()
 state_data = scrapper.get_covid_data()
+scrapper.tear_driver()
 
 final_data_list = []
 
@@ -29,8 +29,6 @@ with app.app_context():
 	# db.drop_all()
 	db.session.add_all(final_data_list)
 	db.session.commit()
-
-
 
 if __name__ == '__main__':
 	app.run(debug=True)

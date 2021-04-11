@@ -1,6 +1,5 @@
 import selenium
 from selenium import webdriver
-# from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -13,10 +12,7 @@ This module contains the CovidScrapper class that contains all the logic
 for scraping the data from covid19.org and converting all that data into
 json-dictionary format.
 """
-
-ENV_PATH = Path('.') / ".env" # path to .env file
-load_dotenv(dotenv_path=ENV_PATH) # setting path of .env file
-
+load_dotenv() # setting path of .env file
 
 class CovidScrapper:
 	"""
@@ -180,8 +176,8 @@ class CovidScrapper:
 		self.__driver.quit()
 
 if __name__ == "__main__":
-	scrapper = CovidScrapper()
-	all_data = scrapper.get_covid_data ()
-	scrapper.tear_driver()
+	scrapper2 = CovidScrapper()
+	all_data = scrapper2.get_covid_data ()
+	scrapper2.tear_driver()
 	print(all_data)
 	print(len(all_data))
