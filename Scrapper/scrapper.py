@@ -5,12 +5,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import os
+from pathlib import Path
+from dotenv import load_dotenv
 
 """
 This module contains the CovidScrapper class that contains all the logic
 for scraping the data from covid19.org and converting all that data into
 json-dictionary format.
 """
+
+ENV_PATH = Path('.') / ".env" # path to .env file
+load_dotenv(dotenv_path=ENV_PATH) # setting path of .env file
 
 
 class CovidScrapper:
@@ -21,7 +26,8 @@ class CovidScrapper:
 	:public methods - get_covid_data
 	"""
 
-	PATH = os.environ.get("CHROME_DRIVER_PATH")  # path to chrome driver
+	PATH = os.getenv("CHROME_DRIVER_PATH")  # path to chrome driver
+	# print(PATH)
 	URL = "https://www.covid19india.org/"  # website url
 
 	def __init__(self):
@@ -40,7 +46,7 @@ class CovidScrapper:
 		chrome_options.add_argument("--disable-gpu")
 		chrome_options.add_argument("--no-sandbox")
 
-		chrome_options.binary_location = os.environ.get("GOOLE_CHROME_PATH")
+		chrome_options.binary_location = os.getenv("GOOLE_CHROME_PATH")
 		driver = webdriver.Chrome(options=chrome_options, executable_path=CovidScrapper.PATH)
 		return driver
 
