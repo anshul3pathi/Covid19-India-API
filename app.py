@@ -27,7 +27,8 @@ def should_fetch():
 			except ValueError:
 				return True
 	except FileNotFoundError:
-		db.create_all()
+		with app.app_context():
+			db.create_all()
 		with open("should_fetch.txt", 'w') as file:
 			file.write(str(datetime.now()))
 		return True
