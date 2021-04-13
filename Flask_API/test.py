@@ -1,11 +1,10 @@
-import requests
+from datetime import datetime
+import time
 
-BASE_URL = "http://127.0.0.1:5000/"
+time1 = datetime.now()
 
-response = requests.get(BASE_URL + "statecoviddata")
-array = response.json()
-print(array)
-print(len(array))
-# print(response.text)
-# for item in response:
-# 	print(item.json())
+time.slee(10)
+
+time2 = datetime.now()
+
+delta_time = ((time2 - time1).total_seconds()) / 60
