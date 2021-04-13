@@ -5,3 +5,4 @@ Flask_API/__pycache__/database.cpython-38.pyc
 Flask_API/should_fetch.txt
 Flask_API/covid_database.db
 Flask_API/.env
+Flask_API/Scrapper/chromedriver.exe
