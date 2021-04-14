@@ -17,6 +17,9 @@ RESOURCE_FIELDS = {
 class CovidResource(Resource):
 	@marshal_with(RESOURCE_FIELDS)
 	def get(self):
+		"""
+		this method provides the api with the get endpoint
+		"""
 		result = repository.get_covid_data()
 		return result
 

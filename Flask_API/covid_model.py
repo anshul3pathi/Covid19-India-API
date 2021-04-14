@@ -1,5 +1,13 @@
+"""
+This module contains the class CovidModel.
+"""
+
 
 class CovidModel:
+	"""
+	This class acts as a data class.
+	It stores all the relevant data in form of properties.
+	"""
 
 	def __init__(self, state_name, confirmed, active, recovered, deceased, tested, vaccine_doses):
 		self.state_name = state_name
