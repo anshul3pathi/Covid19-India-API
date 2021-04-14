@@ -24,8 +24,9 @@ class CovidRepository:
     def get_covid_data(self):
         if self.is_data_stale():
             new_data = self.scrape_new_data()
+            data_from_db = self.fetch_data_from_db()
             self.insert_new_data_into_db(new_data)
-            return new_data
+            return data_from_db
         else:
             return self.fetch_data_from_db()
 

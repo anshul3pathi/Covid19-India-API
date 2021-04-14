@@ -8,6 +8,3 @@ response = requests.get(BASE_URL + "statecoviddata")
 array = response.json()
 print(array)
 print(len(array))
-# print(response.text)
-# for item in response:
-# 	print(item.json())
