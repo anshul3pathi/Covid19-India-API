@@ -23,7 +23,7 @@ class CovidRepository:
 
     def __del__(self):
         """disconnects the databse"""
-        self.db.close()
+        self.db.close_database()
 
     def scrape_new_data(self):
         """

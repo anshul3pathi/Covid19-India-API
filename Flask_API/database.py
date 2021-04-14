@@ -99,6 +99,12 @@ class Database:
 		self.cur.execute("DROP TABLE covid_data")
 		self.create_table()
 
+	def close_database(self):
+		"""
+		closes the database connection
+		"""
+		self.conn.close()
+
 
 if __name__ == "__main__":
     pass
