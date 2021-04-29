@@ -27,7 +27,7 @@ class Database:
         this function creates the covid_database if it already doesn't exist
         """
         self.cur.execute(
-            
+            "CREATE TABLE IF NOT EXISTS covid_data (id INTEGER PRIMARY KEY, state_name TEXT, confirmed INTEGER, active INTEGER, recovered INTEGER, deceased INTEGER, tested INTEGER, vaccinated INTEGER)"
         )
         self.conn.commit()
 
