@@ -7,4 +7,4 @@ api = Api(app)
 api.add_resource(CovidResource, "/statecoviddata")
 
 if __name__ == '__main__':
-	app.run(debug=False, use_debugger=False)
+    app.run(debug=False, use_debugger=False)

@@ -12,6 +12,7 @@ load_dotenv()
 FORMAT = '%Y-%m-%d %H:%M:%S.%f'
 UPDATE_INTERVAL_IN_MINUTES = int(os.getenv('DATA_UPDATE_INTERVAL_IN_MINUTES'))
 
+
 class CovidRepository:
     """this class acts as a bridge between data and api endpoint,
     it takes care of all the task related to data and datafetching and
@@ -91,7 +92,8 @@ class CovidRepository:
     def is_data_stale(self):
         """
         reads the time of last update from requirement.txt file
-        returns True if the data in database is older than UPDATE_INTERVAL_IN_MINUTES
+        returns True if the data in database is older
+        than UPDATE_INTERVAL_IN_MINUTES
         :returns: boolean
         """
         try:
@@ -111,6 +113,7 @@ class CovidRepository:
         except FileNotFoundError:
             self.write_to_should_fetch()
             return True
+
 
 if __name__ == "__main__":
     repo = CovidRepository()
