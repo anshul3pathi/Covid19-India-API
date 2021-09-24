@@ -1,6 +1,6 @@
 # Covid19 India Data API
 
-An API that scrapes [covid19india.org](https://www.covid19india.org/) for data and provides it in JSON format.
+This API proides state-wise covid data of India taken from [covid19india.org](https://www.covid19india.org/) in JSON format.
 
 ## Endpoints
 
